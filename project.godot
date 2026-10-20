@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Non-Subs Demise"
+run/main_scene="uid://htxvnnsin43t"
 config/features=PackedStringArray("4.8", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NewGlob="*uid://dnl81won5is4m"
 
 [display]
 
