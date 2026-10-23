@@ -1,0 +1,15 @@
+{
+	"Name": "Base",
+	"Description": "Base Character",
+	
+	"Shop Item Data": {
+		"Battery Pack": {
+			"Description": "Gives you 10% power when used",
+			"Price": 5,
+			"Max": 3,
+			"Min": 0,
+		},
+		
+	},
+	
+}
