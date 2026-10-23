@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chby37h42tfr4"
-path="res://.godot/imported/MENU.png-5cccadac860fc925b4ea8f45bcb7d693.ctex"
+uid="uid://csmnehrtb02bs"
+path="res://.godot/imported/TrickleMenu.png-2917bddc0a5637d633382005c862efc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Hud/MENU.png"
-dest_files=["res://.godot/imported/MENU.png-5cccadac860fc925b4ea8f45bcb7d693.ctex"]
+source_file="res://Scenes/MainMenu/Hud/TrickleMenu.png"
+dest_files=["res://.godot/imported/TrickleMenu.png-2917bddc0a5637d633382005c862efc0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mshkgjv2qq7g"
-path="res://.godot/imported/chad.jpg-6c5a6dae5c665cdf3dee4d82a690e462.ctex"
+uid="uid://br6ftcbdexej5"
+path="res://.godot/imported/ShokuMenu.png-fdc54b567833b33e4b8cc46def8ab6e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Hud/chad.jpg"
-dest_files=["res://.godot/imported/chad.jpg-6c5a6dae5c665cdf3dee4d82a690e462.ctex"]
+source_file="res://Scenes/MainMenu/Hud/ShokuMenu.png"
+dest_files=["res://.godot/imported/ShokuMenu.png-fdc54b567833b33e4b8cc46def8ab6e0.ctex"]
 
 [params]
 

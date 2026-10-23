@@ -1,40 +1,44 @@
 [gd_scene format=3 uid="uid://htxvnnsin43t"]
 
-[ext_resource type="Script" uid="uid://dsynqixtarutw" path="res://Scenes/M_MainMenu.gd" id="1_853f1"]
-[ext_resource type="Texture2D" uid="uid://mshkgjv2qq7g" path="res://Objects/Hud/chad.jpg" id="1_tt5f1"]
-[ext_resource type="Texture2D" uid="uid://chby37h42tfr4" path="res://Objects/Hud/MENU.png" id="2_ghw46"]
-[ext_resource type="Texture2D" uid="uid://cormbw7bbpq7j" path="res://Objects/Hud/button.png" id="3_8saeu"]
+[ext_resource type="Script" uid="uid://dsynqixtarutw" path="res://Scenes/MainMenu/M_MainMenu.gd" id="1_ua038"]
+[ext_resource type="Texture2D" uid="uid://chby37h42tfr4" path="res://Scenes/MainMenu/Hud/MENU.png" id="2_vapy7"]
+[ext_resource type="Texture2D" uid="uid://dbdpmbmnt6f0d" path="res://Scenes/MainMenu/Hud/Title.png" id="3_8qovt"]
+[ext_resource type="Texture2D" uid="uid://mshkgjv2qq7g" path="res://Scenes/MainMenu/Hud/chad.jpg" id="4_0hjx5"]
+[ext_resource type="Texture2D" uid="uid://dpbqoswlh6acx" path="res://Scenes/MainMenu/Hud/Gear.png" id="4_vapy7"]
+[ext_resource type="Texture2D" uid="uid://cormbw7bbpq7j" path="res://Scenes/MainMenu/Hud/button.png" id="5_fv0xt"]
 
 [node name="MainMenu" type="Node2D" unique_id=1704042094]
-script = ExtResource("1_853f1")
+script = ExtResource("1_ua038")
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=1932718923]
 
 [node name="Menu2" type="Sprite2D" parent="Menu" unique_id=154172947]
-position = Vector2(577.50006, 326)
-scale = Vector2(0.8528107, 0.87567574)
-texture = ExtResource("2_ghw46")
+visible = false
+position = Vector2(576.50006, 324.50003)
+scale = Vector2(0.85428995, 0.87972975)
+texture = ExtResource("2_vapy7")
 
 [node name="Title" type="TextureRect" parent="Menu" unique_id=1606900218]
-offset_left = 365.0
-offset_top = 27.0
-offset_right = 1143.0
-offset_bottom = 284.0
-texture = ExtResource("1_tt5f1")
+offset_left = 1261.0
+offset_top = -162.0
+offset_right = 1863.0
+offset_bottom = 95.0
+texture = ExtResource("3_8qovt")
 
 [node name="TextureRect" type="TextureRect" parent="Menu" unique_id=1120666161]
-offset_left = -222.0
-offset_top = 333.0
-offset_right = 11.0
-offset_bottom = 649.0
-texture = ExtResource("1_tt5f1")
+offset_left = -219.0
+offset_top = 345.0
+offset_right = 14.0
+offset_bottom = 652.0
+pivot_offset_ratio = Vector2(0, 1)
+texture = ExtResource("4_0hjx5")
 
 [node name="PlayButton" type="Button" parent="Menu" unique_id=1482193826]
 offset_left = 670.0
 offset_top = 664.0
 offset_right = 799.0
 offset_bottom = 723.0
-icon = ExtResource("3_8saeu")
+icon = ExtResource("5_fv0xt")
 flat = true
 
 [node name="ShopButton" type="Button" parent="Menu" unique_id=1890878616]
@@ -42,15 +46,15 @@ offset_left = 806.0
 offset_top = 664.0
 offset_right = 935.0
 offset_bottom = 723.0
-icon = ExtResource("3_8saeu")
+icon = ExtResource("5_fv0xt")
 flat = true
 
 [node name="ModesButton" type="Button" parent="Menu" unique_id=871433942]
-offset_left = 934.0
+offset_left = 942.0
 offset_top = 664.0
-offset_right = 1063.0
+offset_right = 1071.0
 offset_bottom = 723.0
-icon = ExtResource("3_8saeu")
+icon = ExtResource("5_fv0xt")
 flat = true
 
 [node name="QuitButton" type="Button" parent="Menu" unique_id=1211757815]
@@ -58,7 +62,17 @@ offset_left = 1023.0
 offset_top = 700.0
 offset_right = 1152.0
 offset_bottom = 759.0
-icon = ExtResource("3_8saeu")
+icon = ExtResource("5_fv0xt")
+flat = true
+
+[node name="Gear" type="Button" parent="Menu" unique_id=324947304]
+offset_left = -79.0
+offset_top = -134.0
+offset_right = 168.0
+offset_bottom = 71.0
+scale = Vector2(0.39999998, 0.39999998)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("4_vapy7")
 flat = true
 
 [connection signal="button_down" from="Menu/PlayButton" to="." method="_on_play_button_button_down"]
@@ -73,3 +87,6 @@ flat = true
 [connection signal="button_down" from="Menu/QuitButton" to="." method="_on_quit_button_button_down"]
 [connection signal="button_up" from="Menu/QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="button_down" from="Menu/Gear" to="." method="_on_quit_button_button_down"]
+[connection signal="button_up" from="Menu/Gear" to="." method="_on_quit_button_button_up"]
+[connection signal="pressed" from="Menu/Gear" to="." method="_on_quit_button_pressed"]
