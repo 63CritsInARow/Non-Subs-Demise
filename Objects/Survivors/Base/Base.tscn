@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bvps5of7pu40h"]
+
+[ext_resource type="Script" uid="uid://bfnxwhybf26wc" path="res://Objects/Survivors/Base/BaseSurvivor.gd" id="1_ucll3"]
+[ext_resource type="PackedScene" uid="uid://djghf5cmvthlp" path="res://Objects/Survivors/Base/Flash.tscn" id="2_3lexq"]
+[ext_resource type="Texture2D" uid="uid://bh45weh1yrxs3" path="res://Objects/Survivors/Base/Flashlight/Activate.png" id="3_j3sk1"]
+[ext_resource type="Texture2D" uid="uid://cie7hf0lwcwwp" path="res://Objects/Survivors/Base/Flashlight/Forward.png" id="4_p03vw"]
+[ext_resource type="Texture2D" uid="uid://ktg1im5kply0" path="res://Objects/Survivors/Base/Flashlight/ForwardDow.png" id="5_q8kme"]
+[ext_resource type="Texture2D" uid="uid://crt3fsehg125r" path="res://Objects/Survivors/Base/Flashlight/ForwardUp.png" id="6_ga8u8"]
+[ext_resource type="Texture2D" uid="uid://dpb3nefgh8on6" path="res://Objects/Survivors/Base/Flashlight/Idle.png" id="7_8l2ln"]
+[ext_resource type="Texture2D" uid="uid://cek0nxg8irwps" path="res://Objects/Survivors/Base/Flashlight/Lef.png" id="8_tnw5o"]
+[ext_resource type="Texture2D" uid="uid://bnbgj1dnvfvju" path="res://Objects/Survivors/Base/Flashlight/LefDow.png" id="9_u3ccq"]
+[ext_resource type="Texture2D" uid="uid://dqj6qye85cqdn" path="res://Objects/Survivors/Base/Flashlight/LefUp.png" id="10_cq32f"]
+[ext_resource type="Texture2D" uid="uid://c5es2v4j3ivn1" path="res://Objects/Survivors/Base/Flashlight/Rig.png" id="11_yer80"]
+[ext_resource type="Texture2D" uid="uid://v3f88qokmuqs" path="res://Objects/Survivors/Base/Flashlight/RigDow.png" id="12_n334k"]
+[ext_resource type="Texture2D" uid="uid://dixhwvdnxhsq6" path="res://Objects/Survivors/Base/Flashlight/RigUp.png" id="13_ohdsj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgruo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j3sk1")
+}],
+"loop": 0,
+"name": &"Activate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p03vw")
+}],
+"loop": 0,
+"name": &"For",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q8kme")
+}],
+"loop": 0,
+"name": &"ForDow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ga8u8")
+}],
+"loop": 0,
+"name": &"ForUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8l2ln")
+}],
+"loop": 0,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_tnw5o")
+}],
+"loop": 0,
+"name": &"Lef",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_u3ccq")
+}],
+"loop": 0,
+"name": &"LefDow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_cq32f")
+}],
+"loop": 0,
+"name": &"LefUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_yer80")
+}],
+"loop": 0,
+"name": &"Rig",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_n334k")
+}],
+"loop": 0,
+"name": &"RigDow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ohdsj")
+}],
+"loop": 0,
+"name": &"RigUp",
+"speed": 5.0
+}]
+
+[node name="Base" type="Node2D" unique_id=466348786 groups=["Player"]]
+script = ExtResource("1_ucll3")
+Name = "Base"
+FlashLight = ExtResource("2_3lexq")
+
+[node name="Hand" type="AnimatedSprite2D" parent="." unique_id=680320690 groups=["Sprite"]]
+position = Vector2(-2.000061, -2)
+scale = Vector2(0.60000086, 0.60000086)
+sprite_frames = SubResource("SpriteFrames_lgruo")
+animation = &"RigUp"
+autoplay = "Idle"
+
+[node name="Anchor" type="Marker2D" parent="." unique_id=1941714863]
+position = Vector2(926, 578)

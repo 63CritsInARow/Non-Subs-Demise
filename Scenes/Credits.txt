@@ -1,0 +1,6 @@
+Flashlight Light:
+	"Flashlight pattern, incandescent" by "w.forster.1@gmail.com"
+	https://opengameart.org/content/flashlight-pattern-incandescent
+	It was made transparent with GIMP and Paint.NET
+	Dunno how shaders work just yet
+	I should watch a vid on that

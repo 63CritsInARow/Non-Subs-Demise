@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du2bebahoedkb"
-path="res://.godot/imported/Icon.png-85e9ea05a1259d9d79e8f4ef2f02395d.ctex"
+uid="uid://v3f88qokmuqs"
+path="res://.godot/imported/RigDow.png-4a8f5858936919fc72d617a1428ae9ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Players/Base/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-85e9ea05a1259d9d79e8f4ef2f02395d.ctex"]
+source_file="res://Objects/Survivors/Base/Flashlight/RigDow.png"
+dest_files=["res://.godot/imported/RigDow.png-4a8f5858936919fc72d617a1428ae9ca.ctex"]
 
 [params]
 

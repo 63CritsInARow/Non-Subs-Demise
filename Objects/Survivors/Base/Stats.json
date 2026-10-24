@@ -4,7 +4,7 @@
 	
 	"Shop Item Data": {
 		"Battery Pack": {
-			"Description": "Gives you 10% power when used",
+			"Description": "Gives you 10% Power when used",
 			"Price": 5,
 			"Max": 3,
 			"Min": 0,
