@@ -7,8 +7,7 @@ radius = 1028.5717
 height = 2057.1433
 
 [node name="FlashLight" type="Area2D" unique_id=1414082828]
-position = Vector2(-239.00006, 39)
-scale = Vector2(0.37333325, 0.23999995)
+scale = Vector2(0.24888857, 0.15999979)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1538199571]
 shape = SubResource("CapsuleShape2D_hcta1")
