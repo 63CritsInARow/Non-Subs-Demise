@@ -110,7 +110,7 @@ script = ExtResource("1_ucll3")
 Name = "Base"
 FlashLight = ExtResource("2_3lexq")
 
-[node name="Hand" type="AnimatedSprite2D" parent="." unique_id=680320690 groups=["Sprite"]]
+[node name="Hand" type="AnimatedSprite2D" parent="." unique_id=680320690 groups=["Hand", "Sprite"]]
 position = Vector2(-2.000061, -2)
 scale = Vector2(0.36000097, 0.36000097)
 sprite_frames = SubResource("SpriteFrames_lgruo")

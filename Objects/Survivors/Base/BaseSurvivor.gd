@@ -3,11 +3,14 @@ class_name BaseSurvivor
 
 @export var Name: String
 @export var BaseHp: float = 100.0
+@export var BasePower: float = 100.0
+
+
 @export var FlashLight: PackedScene
 @export var Loadout: Dictionary = {
 	"1": "Flashlight",
 	"2": "Camera",
-	"3": ""
+	"3": "Interact",
 }
 
 @onready var HandAnchor: Marker2D = $Anchor
@@ -25,8 +28,9 @@ func _ready():
 
 func LoadLight():
 	Light = FlashLight.instantiate()
+	Light.Hand = Hand
 	Light.visible = false
-	add_child(Light)
+	Hand.add_child(Light)
 
 func _process(_d: float):
 	CheckMouse()
@@ -80,7 +84,7 @@ func CheckHand():
 			if Hand.global_position.y >= HandAnchor.global_position.y:
 				height = "Dow"
 			
-			if Hand.global_position.y < HandAnchor.global_position.y - 75:
+			if Hand.global_position.y < HandAnchor.global_position.y - 85:
 				height = "Up"
 			
 			

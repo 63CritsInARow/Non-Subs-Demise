@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://djghf5cmvthlp"]
 
+[ext_resource type="Script" uid="uid://dldqg1v1d3717" path="res://Objects/Survivors/Base/BaseLight.gd" id="1_m5cmm"]
 [ext_resource type="Texture2D" uid="uid://darix0dmxwvlj" path="res://Objects/Survivors/Base/Flashlight/Flash.png" id="1_ud575"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcta1"]
@@ -7,10 +8,12 @@ radius = 1028.5717
 height = 2057.1433
 
 [node name="FlashLight" type="Area2D" unique_id=1414082828]
-scale = Vector2(0.24888857, 0.15999979)
+scale = Vector2(0.62222284, 0.4000004)
+script = ExtResource("1_m5cmm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1538199571]
 shape = SubResource("CapsuleShape2D_hcta1")
 
 [node name="Flash" type="Sprite2D" parent="." unique_id=1058048717]
+self_modulate = Color(1, 1, 1, 0.6039216)
 texture = ExtResource("1_ud575")

@@ -8,7 +8,7 @@ script = ExtResource("1_3463d")
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=295912055]
 
-[node name="Time" type="Label" parent="Hud" unique_id=1619273996]
+[node name="Hour" type="Label" parent="Hud" unique_id=1619273996]
 offset_left = 22.0
 offset_top = 102.0
 offset_right = 203.0

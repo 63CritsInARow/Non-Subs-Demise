@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://6tkp0nburk"]
+
+[ext_resource type="Script" uid="uid://ciil315qq7sk0" path="res://Scenes/MainGame/M_Game.gd" id="1_3463d"]
+[ext_resource type="FontFile" uid="uid://c24sp87217qd4" path="res://Fonts/bedstead-extended.otf" id="2_yad00"]
+
+[node name="Game" type="Node2D" unique_id=2115037701 groups=["Game"]]
+script = ExtResource("1_3463d")
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=295912055]
+
+[node name="Hour" type="Label" parent="Hud" unique_id=1619273996]
+offset_left = 22.0
+offset_top = 102.0
+offset_right = 203.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("2_yad00")
+theme_override_font_sizes/font_size = 47
+text = "Time"
+metadata/_edit_use_anchors_ = true
+
+[node name="Power" type="Label" parent="Hud" unique_id=604912164]
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 322.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("2_yad00")
+theme_override_font_sizes/font_size = 47
+text = "Power"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Label" parent="Hud" unique_id=399501495]
+offset_left = 63.0
+offset_top = 161.0
+offset_right = 244.0
+offset_bottom = 197.0
+theme_override_fonts/font = ExtResource("2_yad00")
+theme_override_font_sizes/font_size = 22
+text = "Timer"
+metadata/_edit_use_anchors_ = true
+
+[node name="Night" type="Label" parent="Hud" unique_id=769570418]
+offset_left = 63.0
+offset_top = 193.0
+offset_right = 244.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("2_yad00")
+theme_override_font_sizes/font_size = 22
+text = "Night"
+metadata/_edit_use_anchors_ = true
