@@ -2,7 +2,7 @@ extends Node2D
 
 var Player: Node2D
 
-var NightN: int = 0
+var NightN: int = 1
 var Hour: int = 0
 var NTimer: float = 0.0
 
@@ -15,6 +15,8 @@ var EnemyLocation: Dictionary = {}
 func _ready():
 	LoadEnemies()
 	LoadPlayer()
+	
+	NightLabel.text = "Night: " + str(NightN)
 
 var PlayerSpawnerPath: String = "res://Objects/Survivors/" + PlayerData.PlayerSurv + "/" + PlayerData.PlayerSurv + ".tscn"
 func LoadPlayer():
@@ -22,11 +24,11 @@ func LoadPlayer():
 		PlayerSpawnerPath = "user://Mods/Players/" + PlayerData.PlayerSurv + "/" + PlayerData.PlayerSurv + ".tscn"
 	
 	if ResourceLoader.exists(PlayerSpawnerPath):
-		var player: Node2D = (load(PlayerSpawnerPath) as PackedScene).instantiate()
-		player.global_position = Vector2(0, 0)
-		add_child(player)
+		Player = (load(PlayerSpawnerPath) as PackedScene).instantiate()
+		Player.global_position = Vector2(0, 0)
+		add_child(Player)
 	else:
-		print("dnuaisgdyuasd")
+		print("Invalid Player Path.")
 
 func LoadEnemies():
 	pass
@@ -38,10 +40,11 @@ func _process(_d: float):
 func TimeProcess():
 	NTimer += 0.1
 	NTimer = snapped(NTimer, 0.15)
-	if NTimer >= 80:
+	if NTimer >= 100:
 		NTimer = 0.0
 		Hour += 1
 
 func HudUpdate():
 	TimerLabel.text = "Timer: " + str(NTimer)
 	HourLabel.text = "Hour: " + str(Hour)
+	PowerLabel.text = "Power: " + str(Player.Power)

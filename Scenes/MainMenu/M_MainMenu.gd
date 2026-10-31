@@ -1,14 +1,16 @@
 extends Node2D
 
 @onready var TrickleMenu: TextureRect = $Menu/TextureRect
-var TrickleImage: String = "res://Scenes/MainMenu/Hud/chad.jpg" #"res://Scenes/MainMenu/Hud/TrickleMenu.png"
-var ShokuImage: String = "res://icon.svg"#"res://Scenes/MainMenu/Hud/ShokuMenu.png"
+var TrickleImage: String = "res://Scenes/MainMenu/Hud/chad.jpg" #TrickleMenu.png"
+var ShokuImage: String = "res://icon.svg" #ShokuMenu.png"
 
 @onready var PlayButton: Button = $Menu/PlayButton
 @onready var ShopButton: Button = $Menu/ShopButton
 @onready var ModesButton: Button = $Menu/ModesButton
 @onready var QuitButton: Button = $Menu/QuitButton
 @onready var Title: TextureRect = $Menu/Title
+var TitleImage: String = "res://Scenes/MainMenu/Hud/Titel.png" #Title.png"
+
 @onready var Gear: Button = $Menu/Gear
 @onready var Fade: Sprite2D = $Menu/Fade
 @onready var SavesSlider: Sprite2D = $Menu/SliderBg
@@ -16,6 +18,7 @@ var ShokuImage: String = "res://icon.svg"#"res://Scenes/MainMenu/Hud/ShokuMenu.p
 
 func _ready():
 	TrickleMenu.texture = load(TrickleImage)
+	Title.texture = load(TitleImage)
 	Fade.visible = true
 	await get_tree().create_timer(1.5, false, false).timeout
 	shouldmove = false

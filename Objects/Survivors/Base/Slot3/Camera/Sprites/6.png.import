@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crt3fsehg125r"
-path="res://.godot/imported/ForwardUp.png-8859e05510c6cfca8309efb6f05900d6.ctex"
+uid="uid://13j2ya423vrs"
+path="res://.godot/imported/6.png-6eec61e12c503066bd62cb9a1ee3b553.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/ForwardUp.png"
-dest_files=["res://.godot/imported/ForwardUp.png-8859e05510c6cfca8309efb6f05900d6.ctex"]
+source_file="res://Objects/Survivors/Base/Slot3/Camera/Sprites/6.png"
+dest_files=["res://.godot/imported/6.png-6eec61e12c503066bd62cb9a1ee3b553.ctex"]
 
 [params]
 

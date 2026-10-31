@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnbgj1dnvfvju"
-path="res://.godot/imported/LefDow.png-3441a76660d16d14d26cb8e6bcd02e1d.ctex"
+uid="uid://djh4bl82oobw8"
+path="res://.godot/imported/4.png-aecc5cbab2aa91c5e8ffa9904002ac05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/LefDow.png"
-dest_files=["res://.godot/imported/LefDow.png-3441a76660d16d14d26cb8e6bcd02e1d.ctex"]
+source_file="res://Objects/Survivors/Base/Slot3/Camera/Sprites/4.png"
+dest_files=["res://.godot/imported/4.png-aecc5cbab2aa91c5e8ffa9904002ac05.ctex"]
 
 [params]
 

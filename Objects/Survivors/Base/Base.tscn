@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://bvps5of7pu40h"]
 
 [ext_resource type="Script" uid="uid://bfnxwhybf26wc" path="res://Objects/Survivors/Base/BaseSurvivor.gd" id="1_ucll3"]
-[ext_resource type="PackedScene" uid="uid://djghf5cmvthlp" path="res://Objects/Survivors/Base/Flash.tscn" id="2_3lexq"]
-[ext_resource type="Texture2D" uid="uid://bh45weh1yrxs3" path="res://Objects/Survivors/Base/Flashlight/Activate.png" id="3_j3sk1"]
-[ext_resource type="Texture2D" uid="uid://cie7hf0lwcwwp" path="res://Objects/Survivors/Base/Flashlight/Forward.png" id="4_p03vw"]
-[ext_resource type="Texture2D" uid="uid://ktg1im5kply0" path="res://Objects/Survivors/Base/Flashlight/ForwardDow.png" id="5_q8kme"]
-[ext_resource type="Texture2D" uid="uid://crt3fsehg125r" path="res://Objects/Survivors/Base/Flashlight/ForwardUp.png" id="6_ga8u8"]
-[ext_resource type="Texture2D" uid="uid://dpb3nefgh8on6" path="res://Objects/Survivors/Base/Flashlight/Idle.png" id="7_8l2ln"]
-[ext_resource type="Texture2D" uid="uid://cek0nxg8irwps" path="res://Objects/Survivors/Base/Flashlight/Lef.png" id="8_tnw5o"]
-[ext_resource type="Texture2D" uid="uid://bnbgj1dnvfvju" path="res://Objects/Survivors/Base/Flashlight/LefDow.png" id="9_u3ccq"]
-[ext_resource type="Texture2D" uid="uid://dqj6qye85cqdn" path="res://Objects/Survivors/Base/Flashlight/LefUp.png" id="10_cq32f"]
-[ext_resource type="Texture2D" uid="uid://c5es2v4j3ivn1" path="res://Objects/Survivors/Base/Flashlight/Rig.png" id="11_yer80"]
-[ext_resource type="Texture2D" uid="uid://v3f88qokmuqs" path="res://Objects/Survivors/Base/Flashlight/RigDow.png" id="12_n334k"]
-[ext_resource type="Texture2D" uid="uid://dixhwvdnxhsq6" path="res://Objects/Survivors/Base/Flashlight/RigUp.png" id="13_ohdsj"]
+[ext_resource type="PackedScene" uid="uid://djghf5cmvthlp" path="res://Objects/Survivors/Base/Slot2/Flashlight/Flash.tscn" id="2_3lexq"]
+[ext_resource type="PackedScene" uid="uid://bk44kws1eug" path="res://Objects/Survivors/Base/Slot3/Camera/Camera.tscn" id="3_3lexq"]
+[ext_resource type="Texture2D" uid="uid://bh45weh1yrxs3" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Activate.png" id="3_j3sk1"]
+[ext_resource type="PackedScene" uid="uid://cclcahpmo4ovu" path="res://Objects/Survivors/Base/Slot4/Mask/Mask.tscn" id="4_8l2ln"]
+[ext_resource type="Texture2D" uid="uid://cie7hf0lwcwwp" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Forward.png" id="4_p03vw"]
+[ext_resource type="Texture2D" uid="uid://ktg1im5kply0" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/ForwardDow.png" id="5_q8kme"]
+[ext_resource type="Texture2D" uid="uid://crt3fsehg125r" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/ForwardUp.png" id="6_ga8u8"]
+[ext_resource type="Texture2D" uid="uid://dpb3nefgh8on6" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Idle.png" id="7_8l2ln"]
+[ext_resource type="Texture2D" uid="uid://cek0nxg8irwps" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Lef.png" id="8_tnw5o"]
+[ext_resource type="Texture2D" uid="uid://bnbgj1dnvfvju" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/LefDow.png" id="9_u3ccq"]
+[ext_resource type="Texture2D" uid="uid://dqj6qye85cqdn" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/LefUp.png" id="10_cq32f"]
+[ext_resource type="Texture2D" uid="uid://c5es2v4j3ivn1" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Rig.png" id="11_yer80"]
+[ext_resource type="Texture2D" uid="uid://v3f88qokmuqs" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/RigDow.png" id="12_n334k"]
+[ext_resource type="Texture2D" uid="uid://dixhwvdnxhsq6" path="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/RigUp.png" id="13_ohdsj"]
+[ext_resource type="Texture2D" uid="uid://fg46l3gl8p1i" path="res://Objects/Survivors/Base/Slot2/Flashlight/Icon.png" id="15_j3sk1"]
+[ext_resource type="Texture2D" uid="uid://dd8aown5ieffp" path="res://Objects/Survivors/Base/Slot1/Interact/Icon.png" id="16_p03vw"]
+[ext_resource type="Texture2D" uid="uid://dosocpk5dgmbe" path="res://Objects/Survivors/Base/Slot3/Camera/Icon.png" id="17_q8kme"]
+[ext_resource type="Texture2D" uid="uid://c0b02ae3dypej" path="res://Objects/Survivors/Base/Slot4/Mask/Icon.png" id="18_ga8u8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lgruo"]
 animations = [{
@@ -109,9 +115,11 @@ animations = [{
 script = ExtResource("1_ucll3")
 Name = "Base"
 FlashLight = ExtResource("2_3lexq")
+CameraScene = ExtResource("3_3lexq")
+MaskScene = ExtResource("4_8l2ln")
 
 [node name="Hand" type="AnimatedSprite2D" parent="." unique_id=680320690 groups=["Hand", "Sprite"]]
-position = Vector2(-2.000061, -2)
+position = Vector2(1005, 814)
 scale = Vector2(0.36000097, 0.36000097)
 sprite_frames = SubResource("SpriteFrames_lgruo")
 animation = &"RigUp"
@@ -119,3 +127,21 @@ autoplay = "Idle"
 
 [node name="Anchor" type="Marker2D" parent="." unique_id=1941714863]
 position = Vector2(926, 578)
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1889332191]
+
+[node name="ToolHud" type="ItemList" parent="Hud" unique_id=46893622]
+offset_left = 3.0
+offset_top = 661.0
+offset_right = 45.0
+offset_bottom = 813.0
+pivot_offset_ratio = Vector2(0.5, 1)
+item_count = 4
+icon_mode = 0
+fixed_icon_size = Vector2i(32, 32)
+item_0/icon = ExtResource("16_p03vw")
+item_1/icon = ExtResource("15_j3sk1")
+item_2/icon = ExtResource("17_q8kme")
+item_3/icon = ExtResource("18_ga8u8")
+
+[connection signal="item_selected" from="Hud/ToolHud" to="." method="ToolBarSelected"]

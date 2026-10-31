@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bk44kws1eug"]
+
+[ext_resource type="Texture2D" uid="uid://5lnqughcogto" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/9.png" id="1_j4t80"]
+[ext_resource type="Texture2D" uid="uid://13j2ya423vrs" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/6.png" id="2_gdtqj"]
+[ext_resource type="Texture2D" uid="uid://cnp0fc17e8hhb" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/5.png" id="3_c8mo6"]
+[ext_resource type="Texture2D" uid="uid://djh4bl82oobw8" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/4.png" id="4_3v031"]
+[ext_resource type="Texture2D" uid="uid://dl5kp0hj3auvl" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/3.png" id="5_5bq0d"]
+[ext_resource type="Texture2D" uid="uid://c8jpyaw2mjqmc" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/2.png" id="6_36wwo"]
+[ext_resource type="Texture2D" uid="uid://gmey1j7j3k1p" path="res://Objects/Survivors/Base/Slot3/Camera/Sprites/1.png" id="7_63qjh"]
+[ext_resource type="Script" uid="uid://4iql1krwfwc8" path="res://Objects/Survivors/Base/Slot3/Camera/BaseCamera.gd" id="8_lhqrq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntfdm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j4t80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gdtqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c8mo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v031")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5bq0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_36wwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_63qjh")
+}],
+"loop": 0,
+"name": &"Down",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_63qjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_36wwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5bq0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3v031")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c8mo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gdtqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_j4t80")
+}],
+"loop": 0,
+"name": &"Up",
+"speed": 20.0
+}]
+
+[node name="Camera" type="Node2D" unique_id=1437115109]
+script = ExtResource("8_lhqrq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1402139227]
+visible = false
+position = Vector2(576, 323.99997)
+scale = Vector2(0.6000001, 0.5999999)
+sprite_frames = SubResource("SpriteFrames_ntfdm")
+animation = &"Down"
+autoplay = "Down"
+frame = 6
+frame_progress = 1.0

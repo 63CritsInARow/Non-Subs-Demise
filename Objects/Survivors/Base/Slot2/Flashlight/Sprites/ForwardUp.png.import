@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5es2v4j3ivn1"
-path="res://.godot/imported/Rig.png-1a776d61eb4e86123e72ade7d5239017.ctex"
+uid="uid://crt3fsehg125r"
+path="res://.godot/imported/ForwardUp.png-830f814d7793f1ca78cb40fa807e6d34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/Rig.png"
-dest_files=["res://.godot/imported/Rig.png-1a776d61eb4e86123e72ade7d5239017.ctex"]
+source_file="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/ForwardUp.png"
+dest_files=["res://.godot/imported/ForwardUp.png-830f814d7793f1ca78cb40fa807e6d34.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ktg1im5kply0"
-path="res://.godot/imported/ForwardDow.png-c4f5f2113f05562a38fdf7d44548b5dd.ctex"
+uid="uid://dd8aown5ieffp"
+path="res://.godot/imported/Icon.png-340414d48f304d677465551715836a30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/ForwardDow.png"
-dest_files=["res://.godot/imported/ForwardDow.png-c4f5f2113f05562a38fdf7d44548b5dd.ctex"]
+source_file="res://Objects/Survivors/Base/Slot1/Interact/Icon.png"
+dest_files=["res://.godot/imported/Icon.png-340414d48f304d677465551715836a30.ctex"]
 
 [params]
 

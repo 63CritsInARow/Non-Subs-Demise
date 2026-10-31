@@ -10,12 +10,12 @@ script = ExtResource("1_3463d")
 
 [node name="Hour" type="Label" parent="Hud" unique_id=1619273996]
 offset_left = 22.0
-offset_top = 102.0
+offset_top = 78.0
 offset_right = 203.0
-offset_bottom = 150.0
+offset_bottom = 126.0
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 47
-text = "Time"
+theme_override_font_sizes/font_size = 32
+text = "Hour"
 metadata/_edit_use_anchors_ = true
 
 [node name="Power" type="Label" parent="Hud" unique_id=604912164]
@@ -24,26 +24,32 @@ offset_top = 27.0
 offset_right = 322.0
 offset_bottom = 75.0
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 47
+theme_override_font_sizes/font_size = 32
 text = "Power"
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Label" parent="Hud" unique_id=399501495]
-offset_left = 63.0
-offset_top = 161.0
-offset_right = 244.0
-offset_bottom = 197.0
+anchors_preset = -1
+anchor_top = -0.032407407
+anchor_bottom = -0.032407407
+offset_left = 39.0
+offset_top = 139.0
+offset_right = 220.0
+offset_bottom = 175.0
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 15
 text = "Timer"
 metadata/_edit_use_anchors_ = true
 
 [node name="Night" type="Label" parent="Hud" unique_id=769570418]
-offset_left = 63.0
-offset_top = 193.0
-offset_right = 244.0
-offset_bottom = 229.0
+anchors_preset = -1
+anchor_top = -0.032407407
+anchor_bottom = -0.032407407
+offset_left = 39.0
+offset_top = 164.0
+offset_right = 220.0
+offset_bottom = 200.0
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 15
 text = "Night"
 metadata/_edit_use_anchors_ = true

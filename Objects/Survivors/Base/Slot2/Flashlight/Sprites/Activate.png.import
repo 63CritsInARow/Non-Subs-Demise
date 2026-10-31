@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cek0nxg8irwps"
-path="res://.godot/imported/Lef.png-2d2c73e75421221ced35a8a8383ffe4d.ctex"
+uid="uid://bh45weh1yrxs3"
+path="res://.godot/imported/Activate.png-5c92c7d718645490bbf021e57dd45b72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/Lef.png"
-dest_files=["res://.godot/imported/Lef.png-2d2c73e75421221ced35a8a8383ffe4d.ctex"]
+source_file="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/Activate.png"
+dest_files=["res://.godot/imported/Activate.png-5c92c7d718645490bbf021e57dd45b72.ctex"]
 
 [params]
 

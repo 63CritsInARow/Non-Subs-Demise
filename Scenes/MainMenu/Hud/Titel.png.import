@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqj6qye85cqdn"
-path="res://.godot/imported/LefUp.png-54e86baaf5a2edc378be10f4046b34d8.ctex"
+uid="uid://oes7r8ast7wa"
+path="res://.godot/imported/Titel.png-144f3661456129656a2888d4957eaa6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/LefUp.png"
-dest_files=["res://.godot/imported/LefUp.png-54e86baaf5a2edc378be10f4046b34d8.ctex"]
+source_file="res://Scenes/MainMenu/Hud/Titel.png"
+dest_files=["res://.godot/imported/Titel.png-144f3661456129656a2888d4957eaa6d.ctex"]
 
 [params]
 

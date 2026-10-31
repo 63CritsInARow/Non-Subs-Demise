@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cclcahpmo4ovu"]
+
+[ext_resource type="Script" uid="uid://bxknflcyc1sh5" path="res://Objects/Survivors/Base/Slot4/Mask/BaseMask.gd" id="1_kex40"]
+[ext_resource type="Texture2D" uid="uid://b65c7s1v542qb" path="res://Objects/Survivors/Base/Slot4/Mask/Mask.png" id="1_t6quy"]
+
+[sub_resource type="Animation" id="Animation_aoxkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kex40"]
+resource_name = "Sway"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.6, 1.1666666, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 4), Vector2(-10, 0), Vector2(-1, -7), Vector2(1, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aoxkj"]
+_data = {
+&"RESET": SubResource("Animation_aoxkj"),
+&"Sway": SubResource("Animation_kex40")
+}
+
+[node name="Mask" type="Node2D" unique_id=1840311557]
+position = Vector2(0, -648)
+script = ExtResource("1_kex40")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=915077309]
+offset_left = -10.0
+offset_right = 1147.0
+offset_bottom = 644.0
+texture = ExtResource("1_t6quy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1253020211]
+root_node = NodePath("../TextureRect")
+libraries/ = SubResource("AnimationLibrary_aoxkj")
+autoplay = &"Sway"

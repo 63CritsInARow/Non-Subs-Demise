@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://darix0dmxwvlj"
-path="res://.godot/imported/Flash.png-aad678ed86fbc4dea2a7437435bb1551.ctex"
+uid="uid://ktg1im5kply0"
+path="res://.godot/imported/ForwardDow.png-9ac771f443167f18a42ecde26b99d3b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/Flash.png"
-dest_files=["res://.godot/imported/Flash.png-aad678ed86fbc4dea2a7437435bb1551.ctex"]
+source_file="res://Objects/Survivors/Base/Slot2/Flashlight/Sprites/ForwardDow.png"
+dest_files=["res://.godot/imported/ForwardDow.png-9ac771f443167f18a42ecde26b99d3b8.ctex"]
 
 [params]
 

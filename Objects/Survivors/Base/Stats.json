@@ -1,7 +1,36 @@
 {
 	"Name": "Base",
-	"Description": "Base Character",
+	"Description": "Base Character.",
 	
+	"Loadout": {
+		
+		"Intent": "I'll keep the names on top and the slots below that, but group each slot together for readability",
+		
+		"Interact": {
+			"Slot": "1",
+			"Status": "Starter",
+			"":"Remember to check miku shot append and copy the loadout system lololololol"
+		},
+		
+		
+		"Slot2": {
+		"Flashlight": {
+				
+			},
+		},
+		
+		
+		"Slot3": {
+		"Camera": {
+				
+			},
+		},
+		"Slot4": {
+		"Mask": {
+				
+			},
+		},
+	},
 	"Shop Item Data": {
 		"Battery Pack": {
 			"Description": "Gives you 10% Power when used",
@@ -9,7 +38,6 @@
 			"Max": 3,
 			"Min": 0,
 		},
-		
 	},
 	
 }

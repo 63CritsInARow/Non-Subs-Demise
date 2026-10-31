@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dixhwvdnxhsq6"
-path="res://.godot/imported/RigUp.png-76104ba22d8233e13ecafb8868ae9315.ctex"
+uid="uid://c8jpyaw2mjqmc"
+path="res://.godot/imported/2.png-630bda2a364f3ee120b8e2e0f96256ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/RigUp.png"
-dest_files=["res://.godot/imported/RigUp.png-76104ba22d8233e13ecafb8868ae9315.ctex"]
+source_file="res://Objects/Survivors/Base/Slot3/Camera/Sprites/2.png"
+dest_files=["res://.godot/imported/2.png-630bda2a364f3ee120b8e2e0f96256ff.ctex"]
 
 [params]
 

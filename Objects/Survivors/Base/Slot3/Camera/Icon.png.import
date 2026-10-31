@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh45weh1yrxs3"
-path="res://.godot/imported/Activate.png-330d3fdadda0c315a94ca938ec16997c.ctex"
+uid="uid://dosocpk5dgmbe"
+path="res://.godot/imported/Icon.png-c730fd9e87f2ec7286fb65ce594813f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Survivors/Base/Flashlight/Activate.png"
-dest_files=["res://.godot/imported/Activate.png-330d3fdadda0c315a94ca938ec16997c.ctex"]
+source_file="res://Objects/Survivors/Base/Slot3/Camera/Icon.png"
+dest_files=["res://.godot/imported/Icon.png-c730fd9e87f2ec7286fb65ce594813f9.ctex"]
 
 [params]
 
