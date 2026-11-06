@@ -8,7 +8,7 @@
 shader = ExtResource("1_qtfja")
 shader_parameter/hr = 0.5
 shader_parameter/vr = 1.0
-shader_parameter/hfov = 200.0000095
+shader_parameter/hfov = 182.90000868775
 shader_parameter/vfov = 60.0
 shader_parameter/z = 1.0
 shader_parameter/ho = 0.5
@@ -19,11 +19,9 @@ shader_parameter/to2 = 1.0
 [node name="Apartment" type="Node2D" unique_id=16173691]
 script = ExtResource("1_n1257")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1923531346]
-offset_right = 1152.0
-offset_bottom = 648.0
-scale = Vector2(1.6060977, 1.4176859)
-pivot_offset_ratio = Vector2(0.5, 0.5)
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1491805488]
+position = Vector2(576, 324)
+scale = Vector2(2.1599994, 1.7599993)
 texture = ExtResource("1_os027")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=447573582]
@@ -34,3 +32,5 @@ offset_right = 1109.334
 offset_bottom = 624.00024
 scale = Vector2(1.0799987, 1.0799987)
 pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Dark" type="Sprite2D" parent="." unique_id=713878656]

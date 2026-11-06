@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dbdpmbmnt6f0d" path="res://Scenes/MainMenu/Hud/Title.png" id="3_8qovt"]
 [ext_resource type="Texture2D" uid="uid://mshkgjv2qq7g" path="res://Scenes/MainMenu/Hud/chad.jpg" id="4_0hjx5"]
 [ext_resource type="Texture2D" uid="uid://dpbqoswlh6acx" path="res://Scenes/MainMenu/Hud/Gear.png" id="4_vapy7"]
-[ext_resource type="Texture2D" uid="uid://bqg1g3rcxeon1" path="res://Scenes/MainMenu/Hud/button.png" id="5_fv0xt"]
 [ext_resource type="Texture2D" uid="uid://bqg1g3rcxeon1" path="res://Scenes/MainMenu/Hud/Button.png" id="5_sng02"]
 [ext_resource type="Texture2D" uid="uid://c4t3y2vh7xur2" path="res://Scenes/MainMenu/Hud/SliderBG.png" id="8_0hjx5"]
 
@@ -58,7 +57,7 @@ offset_left = 942.0
 offset_top = 664.0
 offset_right = 1071.0
 offset_bottom = 723.0
-icon = ExtResource("5_fv0xt")
+icon = ExtResource("5_sng02")
 flat = true
 
 [node name="QuitButton" type="Button" parent="Menu" unique_id=1211757815]
@@ -66,7 +65,7 @@ offset_left = 1023.0
 offset_top = 700.0
 offset_right = 1152.0
 offset_bottom = 759.0
-icon = ExtResource("5_fv0xt")
+icon = ExtResource("5_sng02")
 flat = true
 
 [node name="Gear" type="Button" parent="Menu" unique_id=324947304]
