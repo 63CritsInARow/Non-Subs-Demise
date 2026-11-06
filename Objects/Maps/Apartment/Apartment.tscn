@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dtpjn74tw21n3"]
+
+[ext_resource type="Script" uid="uid://84dg8gf8kmds" path="res://Objects/Maps/Apartment/Scripts/BaseMap.gd" id="1_n1257"]
+[ext_resource type="Texture2D" uid="uid://c2pk8vfv06bji" path="res://Objects/Maps/Apartment/Sprites/Main.png" id="1_os027"]
+[ext_resource type="Shader" uid="uid://dhulcrhlnakm4" path="res://Objects/Maps/Apartment/Scripts/Panorama.gdshader" id="1_qtfja"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtfja"]
+shader = ExtResource("1_qtfja")
+shader_parameter/hr = 0.5
+shader_parameter/vr = 1.0
+shader_parameter/hfov = 200.0000095
+shader_parameter/vfov = 60.0
+shader_parameter/z = 1.0
+shader_parameter/ho = 0.5
+shader_parameter/vo = 0.5
+shader_parameter/to = 1.0
+shader_parameter/to2 = 1.0
+
+[node name="Apartment" type="Node2D" unique_id=16173691]
+script = ExtResource("1_n1257")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1923531346]
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.6060977, 1.4176859)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_os027")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=447573582]
+material = SubResource("ShaderMaterial_qtfja")
+offset_left = 42.666016
+offset_top = 23.999634
+offset_right = 1109.334
+offset_bottom = 624.00024
+scale = Vector2(1.0799987, 1.0799987)
+pivot_offset_ratio = Vector2(0.5, 0.5)

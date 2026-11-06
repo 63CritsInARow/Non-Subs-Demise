@@ -5,6 +5,7 @@ class_name BaseSurvivor
 @export var BaseHp: float = 100.0
 @export var BaseBreath: float = 100.0 ## For things like the mask, or holding your breath even, idk
 @export var BasePower: float = 100.0
+@export var BaseCameraSpeed: float = 600.0
 
 @export var FlashLight: PackedScene
 @export var CameraScene: PackedScene
@@ -22,23 +23,33 @@ var Mask: Node2D
 var FlashlightActive: bool = false
 var CameraActive: bool = false
 var CameraOut: bool = false
+var MaskDown: bool = false
 
 var Interacting: Dictionary = {
 	"IsInter": false,
 	"Objects": [],
 }
-var CurrSlot: int = 1
 var Power: float = 100.0
+var CameraSpeed: float = 100.0
+var Breath: float = 100.0
+
 var CanUseCamera: bool = true
 var CanUseFlash: bool = true
 var CanInteract: bool = true
 var CanUseMask: bool = true
 
 var ShowToolBar: bool = true
+var CurrSlot: int = 1
 
 func _ready():
 	Game = get_tree().get_first_node_in_group("Game")
 	LoadTools()
+	SetBaseStats()
+
+func SetBaseStats():
+	CameraSpeed = BaseCameraSpeed
+	Breath = BaseBreath
+	Power = BasePower
 
 func LoadTools():
 	Light = FlashLight.instantiate()
@@ -60,9 +71,16 @@ func _process(_d: float):
 	CheckLight()
 	CheckToolBar()
 	CheckCamera()
+	CheckMask()
+	CheckMovement()
+
+func CheckMovement():
+	var InputDir: Vector2 = Input.get_vector("CameraLeft", "CameraRight", "CameraUp", "CameraDown")
+	if true in [Input.is_action_pressed("CameraDown"), Input.is_action_pressed("CameraUp"), Input.is_action_pressed("CameraRight"), Input.is_action_pressed("CameraLeft")]:
+		Game.Map.Movement(InputDir, CameraSpeed)
 
 func _input(_e: InputEvent):
-	if CurrSlot == 2:
+	if CurrSlot == 2 and CanUseFlash:
 		if Input.is_action_pressed("Flashlight"):
 			FlashlightActive = true
 		else:
@@ -105,18 +123,14 @@ func CheckMouse():
 		Hand.global_position.x = lerpf(Hand.global_position.x, FinalX - DistanceX, 0.3)
 		Hand.global_position.y = lerpf(Hand.global_position.y, FinalY - DistanceY, 0.3)
 	else:
-		#Hand.global_position = HandAnchor.global_position
 		Hand.global_position.x = lerpf(Hand.global_position.x, 1100, 0.3)
 		Hand.global_position.y = lerpf(Hand.global_position.y, 800, 0.3)
 
 func CheckLight():
-	if CurrSlot == 2:
+	if CurrSlot == 2 and CanUseFlash:
 		if FlashlightActive:
-			Light.visible = true
 			Power -= Light.Drain
 			CheckPower()
-		else:
-			Light.visible = false
 
 func CheckHand():
 	if CurrSlot == 2:
@@ -142,13 +156,26 @@ func CheckHand():
 			Hand.play("Idle")
 
 func CheckCamera():
-	if CurrSlot == 3:
-		if Camera.Sprite.animation != "Up":
-			Camera.FlipUp()
-		Camera.visible = true
+	if CurrSlot == 3 and CanUseCamera:
+		if Input.is_action_just_pressed("ToggleTool"):
+			CameraOut = !CameraOut
+		
+		if CameraOut: #Fixed ts (it was the toggletool lmao)
+			if Camera.Sprite.animation != "Up":
+				Camera.FlipUp()
+		else:
+			if Camera.Sprite.animation != "Down":
+				Camera.FlipDown()
 	else:
 		if Camera.Sprite.animation != "Down":
 			Camera.FlipDown()
 
+func CheckMask():
+	if CurrSlot == 4 and CanUseMask:
+		if Input.is_action_just_pressed("ToggleTool"):
+			MaskDown = !MaskDown
+	else:
+		MaskDown = false
+
 func ToolBarSelected(i: int):
-	CurrSlot = i + 1 #HOOOOLY I feel smart
+	CurrSlot = i + 1

@@ -3,6 +3,9 @@ extends Node
 var PlayerSurv: String = "Base" ## Current Survivor
 var ModdedSurv: bool = false
 
+var PlayerMap: String = "Apartment" ## Current Map
+var ModdedMap: bool = false
+
 var GeneralUnlocks: Dictionary = { ## Unlocks related to the game
 	"Survivors": [],
 	"Enemies": [],

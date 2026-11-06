@@ -1,22 +1,40 @@
 extends Node2D
 
 var Player: Node2D
+var Map: Node2D
 
 var NightN: int = 1
 var Hour: int = 0
 var NTimer: float = 0.0
 
 var EnemyLocation: Dictionary = {}
+
 @onready var HourLabel: Label = $Hud/Hour
 @onready var PowerLabel: Label = $Hud/Power
 @onready var TimerLabel: Label = $Hud/Timer
 @onready var NightLabel: Label = $Hud/Night
 
 func _ready():
+	LoadMap()
 	LoadEnemies()
 	LoadPlayer()
 	
 	NightLabel.text = "Night: " + str(NightN)
+
+
+
+var MapPat: String = "res://Objects/Maps/" + PlayerData.PlayerMap + "/" + PlayerData.PlayerMap + ".tscn"
+func LoadMap():
+	if PlayerData.ModdedMap:
+		MapPat = "user://Mods/Maps/" + PlayerData.PlayerMap + "/" + PlayerData.PlayerMap + ".tscn"
+	
+	if ResourceLoader.exists(MapPat):
+		Map = (load(MapPat) as PackedScene).instantiate()
+		add_child(Map)
+	else:
+		print("Invalid Map Path.")
+
+
 
 var PlayerSpawnerPath: String = "res://Objects/Survivors/" + PlayerData.PlayerSurv + "/" + PlayerData.PlayerSurv + ".tscn"
 func LoadPlayer():
@@ -30,8 +48,12 @@ func LoadPlayer():
 	else:
 		print("Invalid Player Path.")
 
+
+
 func LoadEnemies():
 	pass
+
+
 
 func _process(_d: float):
 	TimeProcess()

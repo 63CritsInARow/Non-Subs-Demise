@@ -8,7 +8,10 @@ func _ready():
 	pass
 
 func _process(_d: float):
-	pass
+	CheckLower()
 
-func CheckLower():
-	pass
+func CheckLower(): # Find a way to make it optimized
+	if Player.MaskDown:
+		global_position.y = lerpf(global_position.y, 0, 0.2)
+	else:
+		global_position.y = lerpf(global_position.y, -700, 0.2)

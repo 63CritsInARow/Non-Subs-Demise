@@ -1,0 +1,5 @@
+Inspired by "FNaF" (Scott Cawthon 2014) and Trickle's "Ghost Town"
+
+Shaders Used:
+	"Panorama Perspective (FNaF fake 3D)" by "Bixqa"
+	https://godotshaders.com/shader/panorama-perspective-fnaf-fake-3d/

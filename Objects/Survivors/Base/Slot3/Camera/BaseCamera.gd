@@ -13,7 +13,6 @@ func _process(_d: float):
 	pass
 
 func FlipUp():
-	Player.CameraOut = true
 	Sprite.visible = true
 	Sprite.play("Up")
 	await Sprite.animation_finished
@@ -23,5 +22,4 @@ func FlipDown():
 	Sprite.play("Down")
 	Player.CameraActive = false
 	await Sprite.animation_finished
-	Player.CameraOut = false
 	Sprite.visible = false
