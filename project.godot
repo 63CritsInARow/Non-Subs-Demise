@@ -30,6 +30,7 @@ window/stretch/aspect="expand"
 
 Player="The Player's Survivor scene during gameplay containing all their data and variables"
 Sprite="Any image that isn't a background"
+Map=""
 
 [input]
 

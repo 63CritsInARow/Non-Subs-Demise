@@ -25,7 +25,7 @@ var CameraActive: bool = false
 var CameraOut: bool = false
 var MaskDown: bool = false
 
-var Interacting: Dictionary = {
+var Interacting: Dictionary = { ## If it's Interacting with Anything, and Which Objects is it interacting With.
 	"IsInter": false,
 	"Objects": [],
 }

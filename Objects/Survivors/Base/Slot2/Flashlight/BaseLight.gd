@@ -1,4 +1,5 @@
 extends Area2D
+class_name BaseLight
 
 @export var Drain: float = 0.001
 

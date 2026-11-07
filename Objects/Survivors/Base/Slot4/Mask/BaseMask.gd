@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseMask
 
 var Player: Node2D
 

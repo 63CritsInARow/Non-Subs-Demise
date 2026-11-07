@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://84dg8gf8kmds" path="res://Objects/Maps/Apartment/Scripts/BaseMap.gd" id="1_n1257"]
 [ext_resource type="Texture2D" uid="uid://c2pk8vfv06bji" path="res://Objects/Maps/Apartment/Sprites/Main.png" id="1_os027"]
 [ext_resource type="Shader" uid="uid://dhulcrhlnakm4" path="res://Objects/Maps/Apartment/Scripts/Panorama.gdshader" id="1_qtfja"]
+[ext_resource type="PackedScene" uid="uid://b3w2jypnh6f0e" path="res://Objects/Maps/Apartment/UI/MoveButton/MoveButton.tscn" id="2_4oa3w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qtfja"]
 shader = ExtResource("1_qtfja")
@@ -16,8 +17,9 @@ shader_parameter/vo = 0.5
 shader_parameter/to = 1.0
 shader_parameter/to2 = 1.0
 
-[node name="Apartment" type="Node2D" unique_id=16173691]
+[node name="Apartment" type="Node2D" unique_id=16173691 groups=["Map"]]
 script = ExtResource("1_n1257")
+MoveButton = ExtResource("2_4oa3w")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1491805488]
 position = Vector2(576, 324)
@@ -33,4 +35,4 @@ offset_bottom = 624.00024
 scale = Vector2(1.0799987, 1.0799987)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Dark" type="Sprite2D" parent="." unique_id=713878656]
+[node name="Hud" type="CanvasLayer" parent="." unique_id=2051862936]

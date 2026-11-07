@@ -1,4 +1,5 @@
 extends Node2D
+class_name BaseCamera
 
 @onready var Sprite: AnimatedSprite2D = $AnimatedSprite2D
 

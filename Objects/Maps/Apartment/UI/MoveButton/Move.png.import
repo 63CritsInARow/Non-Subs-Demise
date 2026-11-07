@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://slk867ltkxl7"
-path="res://.godot/imported/KitchenClose.png-bb453eb2b67fdced5471a14a1988fcd5.ctex"
+uid="uid://c103heoksynsu"
+path="res://.godot/imported/Move.png-7dc14e631f5dafe11e5042c71bc7172b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Maps/Apartment/Sprites/KitchenClose.png"
-dest_files=["res://.godot/imported/KitchenClose.png-bb453eb2b67fdced5471a14a1988fcd5.ctex"]
+source_file="res://Objects/Maps/Apartment/UI/MoveButton/Move.png"
+dest_files=["res://.godot/imported/Move.png-7dc14e631f5dafe11e5042c71bc7172b.ctex"]
 
 [params]
 

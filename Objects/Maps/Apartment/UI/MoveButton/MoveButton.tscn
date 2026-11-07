@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b3w2jypnh6f0e"]
+
+[ext_resource type="Texture2D" uid="uid://c103heoksynsu" path="res://Objects/Maps/Apartment/UI/MoveButton/Move.png" id="1_j6uap"]
+[ext_resource type="Texture2D" uid="uid://cvydclmj8c3hr" path="res://Objects/Maps/Apartment/UI/MoveButton/MoveSel.png" id="2_b6dly"]
+[ext_resource type="Script" uid="uid://crqrd7dxcg2pm" path="res://Objects/Maps/Apartment/UI/MoveButton/BaseMoveButton.gd" id="3_3cvqi"]
+
+[node name="MoveButton" type="TextureButton" unique_id=205060151]
+offset_left = 608.0
+offset_top = 567.0
+offset_right = 1044.0
+offset_bottom = 634.0
+rotation = 1.5707964
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_j6uap")
+texture_pressed = ExtResource("1_j6uap")
+texture_hover = ExtResource("2_b6dly")
+texture_disabled = ExtResource("1_j6uap")
+texture_focused = ExtResource("1_j6uap")
+stretch_mode = 0
+script = ExtResource("3_3cvqi")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
