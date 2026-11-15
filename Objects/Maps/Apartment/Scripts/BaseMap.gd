@@ -39,7 +39,6 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	"Behind": {
 		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
 		"LeadsTo": {
-			"4": ["Bathroom", Vector2(879, 312), 180, Vector2(436, 67), Vector2(2, 2)],
 			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
 		},
 	},
@@ -79,13 +78,11 @@ func RoomChange(To: int):
 	CurrentLocation = To
 	
 	for btn in MovementButtons: # This is being strange...
-		btn.queue_free()
 		MovementButtons.erase(btn)
+		btn.queue_free()
 	
 	for lead: String in RoomData[Current]["LeadsTo"]:
-		print(lead)
 		var BtData: Array = RoomData[Current]["LeadsTo"][lead]
-		print(BtData)
 		var Btn: TextureButton = MoveButton.instantiate()
 		Btn.LeadsTo = int(lead)
 		Btn.position = BtData[1]
