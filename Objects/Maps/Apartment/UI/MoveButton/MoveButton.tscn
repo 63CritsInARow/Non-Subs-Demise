@@ -5,10 +5,8 @@
 [ext_resource type="Script" uid="uid://crqrd7dxcg2pm" path="res://Objects/Maps/Apartment/UI/MoveButton/BaseMoveButton.gd" id="3_3cvqi"]
 
 [node name="MoveButton" type="TextureButton" unique_id=205060151]
-offset_left = 608.0
-offset_top = 567.0
-offset_right = 1044.0
-offset_bottom = 634.0
+offset_right = 436.0
+offset_bottom = 67.0
 rotation = 1.5707964
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1_j6uap")

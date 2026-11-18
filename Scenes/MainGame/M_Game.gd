@@ -13,6 +13,7 @@ var EnemyLocation: Dictionary = {}
 @onready var PowerLabel: Label = $Hud/Power
 @onready var TimerLabel: Label = $Hud/Timer
 @onready var NightLabel: Label = $Hud/Night
+@onready var MapHold: Node2D = $MapHold
 
 func _ready():
 	LoadMap()
@@ -22,7 +23,6 @@ func _ready():
 	NightLabel.text = "Night: " + str(NightN)
 
 
-
 var MapPat: String = "res://Objects/Maps/" + PlayerData.PlayerMap + "/" + PlayerData.PlayerMap + ".tscn"
 func LoadMap():
 	if PlayerData.ModdedMap:
@@ -30,7 +30,8 @@ func LoadMap():
 	
 	if ResourceLoader.exists(MapPat):
 		Map = (load(MapPat) as PackedScene).instantiate()
-		add_child(Map)
+		Map.Game = self
+		MapHold.add_child(Map)
 	else:
 		print("Invalid Map Path.")
 

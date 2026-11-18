@@ -4,6 +4,7 @@ class_name BaseMap
 @onready var Images: Sprite2D = $Sprite ## The Room background Images.
 @onready var Effects: ColorRect = $ColorRect ## The Rect with the Panoramic Distortion.
 @onready var Hud: CanvasLayer = $Hud
+@onready var ButtonHold: Control = $Hud/ButtonHold
 
 @export var PathToFiles: String = "res://Objects/Maps/Apartment/" ## Path for Loading.
 @export var MoveButton: PackedScene
@@ -11,7 +12,7 @@ class_name BaseMap
 @export var CurrentLocation: int = 1 ## Used as the Starting Room as well.
 
 var Darkness: Node2D ## The loaded Darkness Vignette that Follows the Mouse.
-
+var Game: Node2D
 
 var Limits: Dictionary = {
 	"Y+": 0,
@@ -32,14 +33,37 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	"Main": {
 		"Objects": ["DeskTV"],
 		"LeadsTo": {
-			"2": ["Behind", Vector2(104, 560), 180, Vector2(436, 67), Vector2(2, 2)], ## First Value is the Text or Room Name, the rest are the Position, Rotation, and Size of the button in order, and the Minimum Position to Show it.
-			"4": ["Bathroom", Vector2(-172, 312), -90, Vector2(436, 67), Vector2(2, 2)],
+			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), Vector2(-200, 0)], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Minimum Position to Show it, In Order.
+			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), Vector2(2, 2)],
+			"3": ["Window", Vector2(500, 0), 90, Vector2(436, 67), Vector2(2, 2)],
 		},
 	},
 	"Behind": {
 		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
 		"LeadsTo": {
+			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), Vector2(2, 2)],
+			
+		},
+	},
+	"Window": {
+		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"LeadsTo": {
 			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
+			
+		},
+	},
+	"Bathroom": {
+		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"LeadsTo": {
+			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
+			
+		},
+	},
+	"Kitchen Door": {
+		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"LeadsTo": {
+			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
+			
 		},
 	},
 }
@@ -71,22 +95,32 @@ func Movement(dir: Vector2, sp: float):
 
 var MovementButtons: Array = [] ## The loaded Movement Buttons that will be Deleted When a Room Change is done.
 func RoomChange(To: int):
+	MovementButtons.clear()
+	ButtonHold.free()
+	
 	var STRto: String = str(To)
 	var room = Locations[STRto]
-	var Current: String = Locations[str(CurrentLocation)]
+	#var Current: String = Locations[str(CurrentLocation)]
 	Images.texture = load(PathToFiles + "Sprites/" + room + ".png")
 	CurrentLocation = To
 	
-	for btn in MovementButtons: # This is being strange...
-		MovementButtons.erase(btn)
-		btn.queue_free()
 	
-	for lead: String in RoomData[Current]["LeadsTo"]:
-		var BtData: Array = RoomData[Current]["LeadsTo"][lead]
+	await get_tree().process_frame
+	
+	var bttnhold = Control.new()
+	bttnhold.name = "ButtonHold"
+	Hud.add_child(bttnhold)
+	ButtonHold = bttnhold
+	ButtonHold.global_position = Vector2(576, 324)
+	
+	var ButtonLeads: Dictionary = RoomData[room]["LeadsTo"]
+	for lead: String in ButtonLeads:
+		var BtData: Array = RoomData[room]["LeadsTo"][lead]
 		var Btn: TextureButton = MoveButton.instantiate()
 		Btn.LeadsTo = int(lead)
-		Btn.position = BtData[1]
+		Btn.position.x = (BtData[1])[0] - ((BtData[3])[0] * 0.5)
+		Btn.position.y = (BtData[1])[1] - ((BtData[3])[1] * 0.5)
 		Btn.rotation_degrees = BtData[2]
 		Btn.size = BtData[3]
-		Hud.add_child(Btn)
+		ButtonHold.add_child(Btn)
 		MovementButtons.append(Btn)

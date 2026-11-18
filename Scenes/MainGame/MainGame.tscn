@@ -6,6 +6,8 @@
 [node name="Game" type="Node2D" unique_id=2115037701 groups=["Game"]]
 script = ExtResource("1_3463d")
 
+[node name="MapHold" type="Node2D" parent="." unique_id=1717736306]
+
 [node name="Hud" type="CanvasLayer" parent="." unique_id=295912055]
 
 [node name="Hour" type="Label" parent="Hud" unique_id=1619273996]
@@ -13,10 +15,10 @@ offset_left = 22.0
 offset_top = 78.0
 offset_right = 203.0
 offset_bottom = 126.0
-scale = Vector2(1.9097974, 1.9097974)
-theme_override_constants/outline_size = 6
+scale = Vector2(1.4, 1.4)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "Hour"
 metadata/_edit_use_anchors_ = true
 
@@ -25,10 +27,10 @@ offset_left = 22.0
 offset_top = 27.0
 offset_right = 322.0
 offset_bottom = 75.0
-scale = Vector2(1.9097974, 1.9097974)
-theme_override_constants/outline_size = 6
+scale = Vector2(1.4, 1.4)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "Power"
 metadata/_edit_use_anchors_ = true
 
@@ -36,14 +38,14 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_top = -0.032407407
 anchor_bottom = -0.032407407
-offset_left = 39.000004
-offset_top = 152.0
-offset_right = 220.0
-offset_bottom = 188.0
-scale = Vector2(1.9097974, 1.9097974)
-theme_override_constants/outline_size = 3
+offset_left = 48.00003
+offset_top = 157.0
+offset_right = 229.00003
+offset_bottom = 193.0
+scale = Vector2(1.6, 1.6)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 15
 text = "Timer"
 metadata/_edit_use_anchors_ = true
 
@@ -51,13 +53,13 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = -1
 anchor_top = -0.032407407
 anchor_bottom = -0.032407407
-offset_left = 39.000004
-offset_top = 177.0
-offset_right = 220.0
-offset_bottom = 213.0
-scale = Vector2(1.9097974, 1.9097974)
-theme_override_constants/outline_size = 3
+offset_left = 48.00003
+offset_top = 205.0
+offset_right = 229.00003
+offset_bottom = 241.0
+scale = Vector2(1.6, 1.6)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_yad00")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 15
 text = "Night"
 metadata/_edit_use_anchors_ = true
