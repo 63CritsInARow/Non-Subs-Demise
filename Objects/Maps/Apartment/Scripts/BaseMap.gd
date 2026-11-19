@@ -33,8 +33,8 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	"Main": {
 		"Objects": ["DeskTV"],
 		"LeadsTo": {
-			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), Vector2(-200, 0)], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Minimum Position to Show it, In Order.
-			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), Vector2(2, 2)],
+			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), ["Down", -500]], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Side that It Shows in, in Order.
+			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), ["Left", -500]],
 			"3": ["Window", Vector2(500, 0), 90, Vector2(436, 67), Vector2(2, 2)],
 		},
 	},
