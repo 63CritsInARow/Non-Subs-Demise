@@ -19,7 +19,7 @@ func _ready():
 	LoadMap()
 	LoadEnemies()
 	LoadPlayer()
-	
+	Map.Player = Player
 	NightLabel.text = "Night: " + str(NightN)
 
 

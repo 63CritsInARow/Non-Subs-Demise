@@ -16,6 +16,7 @@ class_name BaseSurvivor
 @onready var ToolHud: ItemList = $Hud/ToolHud
 
 var Game: Node2D
+var Map: Node2D
 var Light: Node2D
 var Camera: Node2D
 var Mask: Node2D
@@ -43,6 +44,7 @@ var CurrSlot: int = 1
 
 func _ready():
 	Game = get_tree().get_first_node_in_group("Game")
+	Map = Game.Map
 	LoadTools()
 	SetBaseStats()
 
@@ -55,7 +57,8 @@ func LoadTools():
 	Light = FlashLight.instantiate()
 	Light.Player = self
 	Light.visible = false
-	Hand.add_child(Light)
+	add_child(Light)
+	Hand.z_index = Light.z_index + 1
 	
 	Camera = CameraScene.instantiate()
 	Camera.Player = self
@@ -111,9 +114,10 @@ func CheckPower():
 	Power = snapped(Power, 0.001)
 
 func CheckMouse():
+	var MousePos: Vector2 = get_global_mouse_position()
+	Map.NormalMousePos = MousePos / Vector2(1152, 648)
+	
 	if CurrSlot == 2:
-		var MousePos: Vector2 = get_global_mouse_position()
-		
 		var DistanceX: float = MousePos.x - HandAnchor.global_position.x
 		var DistanceY: float = MousePos.y - HandAnchor.global_position.y
 		
@@ -122,6 +126,8 @@ func CheckMouse():
 		
 		Hand.global_position.x = lerpf(Hand.global_position.x, FinalX - DistanceX, 0.3)
 		Hand.global_position.y = lerpf(Hand.global_position.y, FinalY - DistanceY, 0.3)
+		
+		Light.global_position = MousePos
 	else:
 		Hand.global_position.x = lerpf(Hand.global_position.x, 1100, 0.3)
 		Hand.global_position.y = lerpf(Hand.global_position.y, 800, 0.3)
@@ -129,8 +135,13 @@ func CheckMouse():
 func CheckLight():
 	if CurrSlot == 2 and CanUseFlash:
 		if FlashlightActive:
+			#Map.Vignette.texture = Map.VignetteLight
+			Hand.modulate.v = 1
 			Power -= Light.Drain
 			CheckPower()
+		else:
+			#Map.Vignette.texture = Map.VignetteDark
+			Hand.modulate.v = 0.15
 
 func CheckHand():
 	if CurrSlot == 2:
@@ -160,7 +171,7 @@ func CheckCamera():
 		if Input.is_action_just_pressed("ToggleTool"):
 			CameraOut = !CameraOut
 		
-		if CameraOut: #Fixed ts (it was the toggletool lmao)
+		if CameraOut:
 			if Camera.Sprite.animation != "Up":
 				Camera.FlipUp()
 		else:
