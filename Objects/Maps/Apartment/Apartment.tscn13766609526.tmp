@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dtpjn74tw21n3"]
+
+[ext_resource type="Script" uid="uid://84dg8gf8kmds" path="res://Objects/Maps/Apartment/Scripts/BaseMap.gd" id="1_n1257"]
+[ext_resource type="Texture2D" uid="uid://c2pk8vfv06bji" path="res://Objects/Maps/Apartment/Sprites/Main.png" id="1_os027"]
+[ext_resource type="Shader" uid="uid://dhulcrhlnakm4" path="res://Objects/Maps/Apartment/Scripts/Panorama.gdshader" id="1_qtfja"]
+[ext_resource type="PackedScene" uid="uid://b3w2jypnh6f0e" path="res://Objects/Maps/Apartment/UI/MoveButton/MoveButton.tscn" id="2_4oa3w"]
+[ext_resource type="Texture2D" uid="uid://dgt5n6yfu60iq" path="res://Objects/Maps/Apartment/UI/Vignette/DarkVignette.png" id="5_yeuqd"]
+[ext_resource type="Shader" uid="uid://dhroifkue12hp" path="res://Objects/Maps/Apartment/Vignette.gdshader" id="7_732ep"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtfja"]
+shader = ExtResource("1_qtfja")
+shader_parameter/hr = 0.5
+shader_parameter/vr = 1.0
+shader_parameter/hfov = 182.90000868775
+shader_parameter/vfov = 60.0
+shader_parameter/z = 1.0
+shader_parameter/ho = 0.5
+shader_parameter/vo = 0.5
+shader_parameter/to = 1.0
+shader_parameter/to2 = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mb6p"]
+shader = ExtResource("7_732ep")
+
+[node name="Apartment" type="Node2D" unique_id=16173691 groups=["Map"]]
+script = ExtResource("1_n1257")
+MoveButton = ExtResource("2_4oa3w")
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=599097148]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1491805488]
+position = Vector2(576, 324)
+scale = Vector2(2.1599994, 1.7599993)
+texture = ExtResource("1_os027")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=447573582]
+material = SubResource("ShaderMaterial_qtfja")
+offset_left = 42.666016
+offset_top = 23.999634
+offset_right = 1109.334
+offset_bottom = 624.00024
+scale = Vector2(1.0799987, 1.0799987)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1625699426]
+material = SubResource("ShaderMaterial_3mb6p")
+offset_left = 42.666016
+offset_top = 23.999634
+offset_right = 1109.334
+offset_bottom = 624.00024
+scale = Vector2(1.0799987, 1.0799987)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=1776198622]
+visible = false
+modulate = Color(0, 0, 0, 0.9607843)
+position = Vector2(576, 324)
+scale = Vector2(3.689996, 2.3999977)
+texture = ExtResource("5_yeuqd")
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=2051862936]
+
+[node name="ButtonHold" type="Control" parent="Hud" unique_id=1011532237]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0

@@ -18,6 +18,8 @@ var Darkness: Node2D ## The loaded Darkness Vignette that Follows the Mouse.
 var Game: Node2D
 var Player: Node2D
 
+var ScreenCenter: Vector2 = Vector2(576, 324)
+
 var Limits: Dictionary = {
 	"Y+": 0,
 	"Y-": -271,
@@ -38,7 +40,7 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 		"Objects": ["DeskTV"],
 		"LeadsTo": {
 			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Side that It Shows in, in Order.
-			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
+			"5": ["Kitchen", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
 			"3": ["Window", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
 			#"5": ["Window", Vector2(0, -300), 180, Vector2(436, 67), ["Up", 400]],
 		},
@@ -46,29 +48,28 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	"Behind": {
 		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
 		"LeadsTo": {
-			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), Vector2(2, 2)],
-			
+			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
+			"4": ["Bathroom", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
 		},
 	},
 	"Window": {
-		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"Objects": ["OutsideWindow"],
 		"LeadsTo": {
-			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
-			
+			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
 		},
 	},
 	"Bathroom": {
-		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"Objects": ["Sink", "Toilet", "Shower", "Mirror"],
 		"LeadsTo": {
-			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
-			
+			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
+			"5": ["Kitchen", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
 		},
 	},
 	"Kitchen Door": {
-		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
+		"Objects": ["ShortHallway", "Kitchen"], #I lowk dunno what to put here lol
 		"LeadsTo": {
-			"1": ["Main", Vector2(608, 560), 180, Vector2(436, 67), Vector2(2, 2)],
-			
+			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
+			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
 		},
 	},
 }
@@ -86,7 +87,7 @@ func _process(_d: float):
 
 var NormalMousePos: Vector2
 var DefaultI: float = 5.0
-var StrongI: float = 3.0
+var StrongI: float = 1.5
 func ProcessVignette():
 	Vignette.set_instance_shader_parameter("X", NormalMousePos[0])
 	Vignette.set_instance_shader_parameter("Y", NormalMousePos[1])
@@ -144,17 +145,19 @@ func CheckButtonPos():
 
 var MovementButtons: Dictionary = {} ## The loaded Movement Buttons and their Visible Positions that will be Deleted When a Room Change is done.
 func RoomChange(To: int):
-	MovementButtons.clear()
-	ButtonHold.free()
 	
 	var STRto: String = str(To)
 	var room = Locations[STRto]
-	#var Current: String = Locations[str(CurrentLocation)]
 	Images.texture = load(PathToFiles + "Sprites/" + room + ".png")
+	Images.global_position = ScreenCenter
 	CurrentLocation = To
 	
+	MovementButtons.clear()
+	ButtonHold.free()
 	
-	await get_tree().process_frame
+	Images.self_modulate = Color()
+	await get_tree().create_timer(0.25, false, false).timeout
+	Images.self_modulate = Color(1, 1, 1, 1)
 	
 	var bttnhold = Control.new()
 	bttnhold.name = "ButtonHold"
@@ -173,3 +176,5 @@ func RoomChange(To: int):
 		Btn.size = BtData[3]
 		ButtonHold.add_child(Btn)
 		MovementButtons[Btn] = BtData[4]
+	
+	CheckButtonPos()

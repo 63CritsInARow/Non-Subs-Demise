@@ -2,10 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dldqg1v1d3717" path="res://Objects/Survivors/Base/Slot2/Flashlight/BaseLight.gd" id="1_m5cmm"]
 [ext_resource type="Texture2D" uid="uid://darix0dmxwvlj" path="res://Objects/Survivors/Base/Slot2/Flashlight/Flash.png" id="1_ud575"]
-[ext_resource type="Shader" uid="uid://dn5p6crckbg3l" path="res://Objects/Survivors/Base/Slot2/Flashlight/Flash.gdshader" id="2_vrp1f"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrp1f"]
-shader = ExtResource("2_vrp1f")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcta1"]
 radius = 1028.5717
@@ -16,11 +12,11 @@ radius = 196.07121
 height = 392.14243
 
 [node name="FlashLight" type="Area2D" unique_id=1414082828]
-scale = Vector2(0.37333477, 0.24000092)
+scale = Vector2(0.6222238, 0.400001)
 script = ExtResource("1_m5cmm")
 
 [node name="Flash" type="Sprite2D" parent="." unique_id=1058048717 groups=["Sprite"]]
-material = SubResource("ShaderMaterial_vrp1f")
+modulate = Color(1, 1, 1, 0.6784314)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_ud575")
 
