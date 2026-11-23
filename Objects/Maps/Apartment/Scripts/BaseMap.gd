@@ -2,7 +2,7 @@ extends Node2D
 class_name BaseMap
 
 @onready var Images: Sprite2D = $Sprite ## The Room background Images.
-@onready var Effects: ColorRect = $ColorRect ## The Rect with the Panoramic Distortion.
+@onready var Effects: ColorRect = $Effects ## The Rect with the Panoramic Distortion.
 @onready var Hud: CanvasLayer = $Hud
 @onready var ButtonHold: Control = $Hud/ButtonHold
 #@onready var Vignette: Sprite2D = $Flash
@@ -13,6 +13,8 @@ class_name BaseMap
 @export var PathToFiles: String = "res://Objects/Maps/Apartment/" ## Path for Loading.
 @export var MoveButton: PackedScene
 @export var CurrentLocation: int = 1 ## Used as the Starting Room as well.
+
+@export var ColorBG: String = "000000" ## Hex code Color for the BG of the Scene itself
 
 var Darkness: Node2D ## The loaded Darkness Vignette that Follows the Mouse.
 var Game: Node2D
@@ -74,9 +76,13 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	},
 }
 func _ready():
+	Setup()
 	DictionarySetup()
 	RoomChange(CurrentLocation)
 	SetLimits()
+
+func Setup():
+	RenderingServer.set_default_clear_color(Color(ColorBG))
 
 func DictionarySetup(): ## A way to set up the dictionaries without it being an export var bc export dictionaries SUCK to edit
 	pass
@@ -157,6 +163,7 @@ func RoomChange(To: int):
 	
 	Images.self_modulate = Color()
 	await get_tree().create_timer(0.25, false, false).timeout
+	call("Room"+STRto)
 	Images.self_modulate = Color(1, 1, 1, 1)
 	
 	var bttnhold = Control.new()
@@ -174,7 +181,32 @@ func RoomChange(To: int):
 		Btn.position.y = (BtData[1])[1] - ((BtData[3])[1] * 0.5)
 		Btn.rotation_degrees = BtData[2]
 		Btn.size = BtData[3]
+		Btn.name = BtData[0]
 		ButtonHold.add_child(Btn)
 		MovementButtons[Btn] = BtData[4]
 	
 	CheckButtonPos()
+
+func RoomProcess():
+	pass
+
+func Room1():
+	pass
+
+func Room2():
+	pass
+
+func Room3():
+	pass
+
+func Room4():
+	pass
+
+func Room5():
+	pass
+
+func Cam1():
+	pass
+
+func Cam2():
+	pass
