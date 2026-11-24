@@ -16,3 +16,7 @@ func _ready():
 
 func GetMapData():
 	pass
+
+func Move():
+	var current: String = Map.Locations[MapPosition]["Name"]
+	var options: Array = Map.d
