@@ -5,7 +5,7 @@ class_name BaseSurvivor
 @export var BaseHp: float = 100.0
 @export var BaseBreath: float = 100.0 ## For things like the mask, or holding your breath even, idk
 @export var BasePower: float = 100.0
-@export var BaseCameraSpeed: float = 600.0
+@export var BaseCameraSpeed: float = 700.0
 
 @export var FlashLight: PackedScene
 @export var CameraScene: PackedScene

@@ -2,21 +2,18 @@ extends Node2D
 class_name BaseMap
 
 @onready var Images: Sprite2D = $Sprite ## The Room background Images.
+@onready var ImagesBG: Sprite2D = $MapBehind ## The Room background Images.
 @onready var Effects: ColorRect = $Effects ## The Rect with the Panoramic Distortion.
 @onready var Hud: CanvasLayer = $Hud
 @onready var ButtonHold: Control = $Hud/ButtonHold
-#@onready var Vignette: Sprite2D = $Flash
 @onready var Vignette: ColorRect = $Vignette
 
-#@export var VignetteDark: Texture2D
-#@export var VignetteLight: Texture2D
 @export var PathToFiles: String = "res://Objects/Maps/Apartment/" ## Path for Loading.
 @export var MoveButton: PackedScene
 @export var CurrentLocation: int = 1 ## Used as the Starting Room as well.
 
 @export var ColorBG: String = "000000" ## Hex code Color for the BG of the Scene itself
 
-var Darkness: Node2D ## The loaded Darkness Vignette that Follows the Mouse.
 var Game: Node2D
 var Player: Node2D
 
@@ -29,13 +26,34 @@ var Limits: Dictionary = {
 	"X-": -747,
 }
 var Locations: Dictionary = { ## Names and their numbers, Keep the names the same as in the files.
-	"1": "Main",
-	"2": "Behind",
-	"3": "Window",
-	"4": "Bathroom",
-	"5": "Kitchen Door",
-	"6": "Kitchen Camera",
-	"7": "Hallway Camera",
+	"1": {
+		"Name": "Main", 
+		"Image": Texture2D,
+	},
+	"2": {
+		"Name": "Behind",
+		"Image": Texture2D,
+	},
+	"3": {
+		"Name": "Window",
+		"Image": Texture2D,
+	},
+	"4": {
+		"Name": "Bathroom",
+		"Image": Texture2D,
+	},
+	"5": {
+		"Name": "Kitchen Door",
+		"Image": Texture2D,
+	},
+	"6": {
+		"Name": "Kitchen Camera",
+		"Image": Texture2D,
+	},
+	"7": {
+		"Name": "Hallway Camera",
+		"Image": Texture2D,
+	},
 }
 @export var RoomData: Dictionary = { ## Holds data like what objects it has and what rooms it leads to.
 	"Main": {
@@ -44,7 +62,6 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Side that It Shows in, in Order.
 			"5": ["Kitchen", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
 			"3": ["Window", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
-			#"5": ["Window", Vector2(0, -300), 180, Vector2(436, 67), ["Up", 400]],
 		},
 	},
 	"Behind": {
@@ -76,8 +93,8 @@ var Locations: Dictionary = { ## Names and their numbers, Keep the names the sam
 	},
 }
 func _ready():
-	Setup()
 	DictionarySetup()
+	Setup()
 	RoomChange(CurrentLocation)
 	SetLimits()
 
@@ -85,11 +102,15 @@ func Setup():
 	RenderingServer.set_default_clear_color(Color(ColorBG))
 
 func DictionarySetup(): ## A way to set up the dictionaries without it being an export var bc export dictionaries SUCK to edit
-	pass
+	for r in Locations:
+		var n: String = Locations[r]["Name"]
+		Locations[r]["Image"] = load(PathToFiles + "Sprites/" + n + ".png")
+		print(Locations[r]["Image"])
 
 func _process(_d: float):
 	CheckButtonPos()
 	ProcessVignette()
+	RoomProcess()
 
 var NormalMousePos: Vector2
 var DefaultI: float = 5.0
@@ -153,8 +174,8 @@ var MovementButtons: Dictionary = {} ## The loaded Movement Buttons and their Vi
 func RoomChange(To: int):
 	
 	var STRto: String = str(To)
-	var room = Locations[STRto]
-	Images.texture = load(PathToFiles + "Sprites/" + room + ".png")
+	var room = Locations[STRto]["Name"]
+	Images.texture = Locations[STRto]["Image"]
 	Images.global_position = ScreenCenter
 	CurrentLocation = To
 	
@@ -163,7 +184,6 @@ func RoomChange(To: int):
 	
 	Images.self_modulate = Color()
 	await get_tree().create_timer(0.25, false, false).timeout
-	call("Room"+STRto)
 	Images.self_modulate = Color(1, 1, 1, 1)
 	
 	var bttnhold = Control.new()
@@ -188,25 +208,10 @@ func RoomChange(To: int):
 	CheckButtonPos()
 
 func RoomProcess():
-	pass
-
-func Room1():
-	pass
-
-func Room2():
-	pass
-
-func Room3():
-	pass
-
-func Room4():
-	pass
-
-func Room5():
-	pass
-
-func Cam1():
-	pass
-
-func Cam2():
-	pass
+	if CurrentLocation in [1, 2]:
+		ImagesBG.visible = false
+	
+	if CurrentLocation == 3:
+		ImagesBG.visible = true
+		
+		
