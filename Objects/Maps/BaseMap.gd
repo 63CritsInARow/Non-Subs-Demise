@@ -8,104 +8,32 @@ class_name BaseMap
 @onready var ButtonHold: Control = $Hud/ButtonHold
 @onready var Vignette: ColorRect = $Vignette
 
-@export var PathToFiles: String = "res://Objects/Maps/Apartment/" ## Path for Loading.
+@export var PathToFiles: String ## Path for Loading.
 @export var MoveButton: PackedScene
 @export var CurrentLocation: int = 1 ## Used as the Starting Room as well.
-
-@export var ColorBG: String = "000000" ## Hex code Color for the BG of the Scene itself
+ 
+@export var ColorBG: String ## Hex code Color for the BG of the Scene itself
 
 var Game: Node2D
 var Player: Node2D
 
 var ScreenCenter: Vector2 = Vector2(576, 324)
 
-var Limits: Dictionary = {
-	"Y+": 0,
-	"Y-": -271,
-	"X+": 49,
-	"X-": -747,
-}
-var Locations: Dictionary = { ## Names and their numbers, Keep the names the same as in the files.
-	"1": {
-		"Name": "Main", 
-		"Image": Texture2D,
-	},
-	"2": {
-		"Name": "Behind",
-		"Image": Texture2D,
-	},
-	"3": {
-		"Name": "Window",
-		"Image": Texture2D,
-	},
-	"4": {
-		"Name": "Bathroom",
-		"Image": Texture2D,
-	},
-	"5": {
-		"Name": "Kitchen Door",
-		"Image": Texture2D,
-	},
-	"6": {
-		"Name": "Kitchen Camera",
-		"Image": Texture2D,
-	},
-	"7": {
-		"Name": "Hallway Camera",
-		"Image": Texture2D,
-	},
-}
-@export var RoomData: Dictionary = { ## Holds data like what objects it has and what rooms it leads to.
-	"Main": {
-		"Objects": ["DeskTV"],
-		"LeadsTo": {
-			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Side that It Shows in, in Order.
-			"5": ["Kitchen", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
-			"3": ["Window", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
-		},
-	},
-	"Behind": {
-		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
-		"LeadsTo": {
-			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
-			"4": ["Bathroom", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
-		},
-	},
-	"Window": {
-		"Objects": ["OutsideWindow"],
-		"LeadsTo": {
-			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
-		},
-	},
-	"Bathroom": {
-		"Objects": ["Sink", "Toilet", "Shower", "Mirror"],
-		"LeadsTo": {
-			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
-			"5": ["Kitchen", Vector2(500, 0), 90, Vector2(436, 67), ["Rig", 400]],
-		},
-	},
-	"Kitchen Door": {
-		"Objects": ["ShortHallway", "Kitchen"], #I lowk dunno what to put here lol
-		"LeadsTo": {
-			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
-			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
-		},
-	},
-}
+@export var Limits: Dictionary = {}
+@export var Locations: Dictionary = {} ## Names and their numbers, Keep the names the same as in the files.
+@export var RoomData: Dictionary = {} ## Holds data like what objects it has and what rooms it leads to.
+
 func _ready():
 	DictionarySetup()
 	Setup()
 	RoomChange(CurrentLocation)
 	SetLimits()
 
-func Setup():
+func Setup(): ## Setup stuff
 	RenderingServer.set_default_clear_color(Color(ColorBG))
 
 func DictionarySetup(): ## A way to set up the dictionaries without it being an export var bc export dictionaries SUCK to edit
-	for r in Locations:
-		var n: String = Locations[r]["Name"]
-		Locations[r]["Image"] = load(PathToFiles + "Sprites/" + n + ".png")
-		print(Locations[r]["Image"])
+	pass
 
 func _process(_d: float):
 	CheckButtonPos()
@@ -125,8 +53,8 @@ func ProcessVignette():
 	else:
 		Vignette.set_instance_shader_parameter("I", lerp(CurrI, DefaultI, 0.06))
 
-var XHalf: float #Window half = 576
-var YHalf: float #Window half = 324
+var XHalf: float # Window half = 576
+var YHalf: float # Window half = 324
 func SetLimits():
 	XHalf = (Images.texture.get_size().x * 0.5) * Images.scale.x
 	YHalf = (Images.texture.get_size().y * 0.50) * Images.scale.y
@@ -141,6 +69,7 @@ func Movement(dir: Vector2, sp: float):
 	
 	Images.global_position.x = clamp(Images.global_position.x, Limits["X-"], Limits["X+"])
 	Images.global_position.y = clamp(Images.global_position.y, Limits["Y-"], Limits["Y+"])
+	ImagesBG.global_transform = Images.global_transform
 
 func CheckButtonPos():
 	for b: TextureButton in MovementButtons:
@@ -172,7 +101,6 @@ func CheckButtonPos():
 
 var MovementButtons: Dictionary = {} ## The loaded Movement Buttons and their Visible Positions that will be Deleted When a Room Change is done.
 func RoomChange(To: int):
-	
 	var STRto: String = str(To)
 	var room = Locations[STRto]["Name"]
 	Images.texture = Locations[STRto]["Image"]
@@ -183,8 +111,10 @@ func RoomChange(To: int):
 	ButtonHold.free()
 	
 	Images.self_modulate = Color()
+	ImagesBG.self_modulate = Color()
 	await get_tree().create_timer(0.25, false, false).timeout
 	Images.self_modulate = Color(1, 1, 1, 1)
+	ImagesBG.self_modulate = Color(1, 1, 1, 1)
 	
 	var bttnhold = Control.new()
 	bttnhold.name = "ButtonHold"
@@ -206,12 +136,8 @@ func RoomChange(To: int):
 		MovementButtons[Btn] = BtData[4]
 	
 	CheckButtonPos()
+	ImagesBG.global_transform = Images.global_transform
+	ImagesBG.visible = false
 
 func RoomProcess():
-	if CurrentLocation in [1, 2]:
-		ImagesBG.visible = false
-	
-	if CurrentLocation == 3:
-		ImagesBG.visible = true
-		
-		
+	pass

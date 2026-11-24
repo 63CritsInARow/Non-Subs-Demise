@@ -84,7 +84,7 @@ func CheckMovement():
 
 func _input(_e: InputEvent):
 	if CurrSlot == 2 and CanUseFlash:
-		if Input.is_action_pressed("Flashlight"):
+		if Input.is_action_pressed("Mouse1"):
 			FlashlightActive = true
 		else:
 			FlashlightActive = false
@@ -131,6 +131,7 @@ func CheckMouse():
 	else:
 		Hand.global_position.x = lerpf(Hand.global_position.x, 1100, 0.3)
 		Hand.global_position.y = lerpf(Hand.global_position.y, 800, 0.3)
+		FlashlightActive = false
 
 func CheckLight():
 	if CurrSlot == 2 and CanUseFlash:
