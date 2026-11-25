@@ -8,6 +8,8 @@ script = ExtResource("1_3463d")
 
 [node name="MapHold" type="Node2D" parent="." unique_id=1717736306]
 
+[node name="EnemyHold" type="Node2D" parent="." unique_id=59560602]
+
 [node name="Hud" type="CanvasLayer" parent="." unique_id=295912055]
 
 [node name="Hour" type="Label" parent="Hud" unique_id=1619273996]

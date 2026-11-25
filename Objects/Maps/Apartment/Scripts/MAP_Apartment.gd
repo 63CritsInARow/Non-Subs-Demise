@@ -7,7 +7,8 @@ var KitchenDoorShined: bool = false
 
 func DictionarySetup():
 	RoomData = {
-		"Main": {
+	"Main": {
+		"Type": "Room",
 		"Objects": ["DeskTV"],
 		"LeadsTo": {
 			"2": ["Behind", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]], ## First Value is the Text or Room Name, the rest are the Position, Rotation, Size of the button, and the Side that It Shows in, in Order.
@@ -16,6 +17,7 @@ func DictionarySetup():
 		},
 	},
 	"Behind": {
+		"Type": "Room",
 		"Objects": ["Bed", "Pillow", "DoubleDrawerSmall", "Vent"],
 		"LeadsTo": {
 			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
@@ -23,12 +25,14 @@ func DictionarySetup():
 		},
 	},
 	"Window": {
+		"Type": "Room",
 		"Objects": ["OutsideWindow"],
 		"LeadsTo": {
 			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
 		},
 	},
 	"Bathroom": {
+		"Type": "Room",
 		"Objects": ["Sink", "Toilet", "Shower", "Mirror"],
 		"LeadsTo": {
 			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
@@ -36,11 +40,22 @@ func DictionarySetup():
 		},
 	},
 	"Kitchen Door": {
+		"Type": "Room",
 		"Objects": ["ShortHallway", "Kitchen"], #I lowk dunno what to put here lol
 		"LeadsTo": {
 			"1": ["Main", Vector2(0, 280), 180, Vector2(436, 67), ["Dow", 350]],
 			"4": ["Bathroom", Vector2(-500, 0), -90, Vector2(436, 67), ["Lef", 700]],
 		},
+	},
+	"Kitchen Camera": {
+		"Type": "Camera",
+		"Objects": ["Sofa", "Fridge", "Kitchen", "Table", "Door"],
+		"LeadsTo": ["7", "5"],
+	},
+	"Hallway Camera": {
+		"Type": "Camera",
+		"Objects": ["LongHallway", "Door", "Door"],
+		"LeadsTo": ["6"],
 	},
 	} ######
 	Locations = {
@@ -87,6 +102,23 @@ func DictionarySetup():
 	for r in Locations:
 		var n: String = Locations[r]["Name"]
 		Locations[r]["Image"] = load(PathToFiles + "Sprites/" + n + ".png")
+	EnemyPathGuide = { #######
+		"7": {
+			"6": "Forward",
+			},
+		"6": {
+			"7": "Backward",
+			"5": "Forward",
+		},
+		"5": {
+			"6": "Backward",
+			"1": "Forward",
+			"2": "Forward",
+			"3": "Forward",
+			"4": "Forward",
+		},
+		
+	}
 
 func RoomProcess():
 	if CurrentLocation in [1, 2]:

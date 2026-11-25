@@ -19,9 +19,10 @@ var Player: Node2D
 
 var ScreenCenter: Vector2 = Vector2(576, 324)
 
-@export var Limits: Dictionary = {}
-@export var Locations: Dictionary = {} ## Names and their numbers, Keep the names the same as in the files.
-@export var RoomData: Dictionary = {} ## Holds data like what objects it has and what rooms it leads to.
+@export var Limits: Dictionary ## Limits for the Image BG
+@export var Locations: Dictionary ## Names and their numbers, Keep the names the same as in the files.
+@export var RoomData: Dictionary ## Holds data like what objects it has and what rooms it leads to.
+@export var EnemyPathGuide: Dictionary ## Dictionary that says Where Enemies can Go
 
 func _ready():
 	DictionarySetup()

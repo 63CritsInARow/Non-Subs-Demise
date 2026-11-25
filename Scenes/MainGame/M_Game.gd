@@ -14,6 +14,7 @@ var EnemyLocation: Dictionary = {}
 @onready var TimerLabel: Label = $Hud/Timer
 @onready var NightLabel: Label = $Hud/Night
 @onready var MapHold: Node2D = $MapHold
+@onready var EnemyHold: Node2D = $EnemyHold
 
 func _ready():
 	LoadMap()
@@ -52,8 +53,11 @@ func LoadPlayer():
 
 
 func LoadEnemies():
-	pass
-
+	var ResPath: String = "res://Objects/Enemies/"
+	for e in PlayerData.SelectedEnemies:
+		if e in CharData.BaseEnemies:
+			var En: Node2D = load(ResPath + e + "/" + e + ".tscn").instantiate()
+			EnemyHold.add_child(En)
 
 
 func _process(_d: float):

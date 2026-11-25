@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://7pgcenpsl63h"]
 
+[ext_resource type="Script" uid="uid://darfypaeuu3rb" path="res://Objects/Enemies/Base/BaseEnemy.gd" id="1_subo7"]
+
 [node name="Base" type="Node2D" unique_id=1677631305]
+script = ExtResource("1_subo7")
+
+[node name="Timer" type="Timer" parent="." unique_id=508756130]
+
+[connection signal="timeout" from="Timer" to="." method="MoveTimer"]

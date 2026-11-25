@@ -17,8 +17,8 @@ var CharUnlocks: Dictionary = { ## Unlocks for the current character selected
 var EnemyData: Dictionary = { ## Unlocks, data, and tracked actions from all enemies
 	
 }
-var SelectedEnemies: Dictionary = { ## Selected Enemies for the Night
-	"Trickle": 20,
+var SelectedEnemies: Dictionary = { ## Selected Enemies for the Night / AI Level
+	"Base": 20,
 }
 var Loadout: Dictionary = {
 	"1": "Interact",
